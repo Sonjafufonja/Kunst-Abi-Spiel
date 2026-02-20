@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunst LK 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Font für Museum-Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- HAUPTMENÜ -->
+        <div id="menu-screen" class="screen active">
+            <h1>KUNST LK<br><span class="highlight">BATTLE 2026</span></h1>
+            <p class="subtitle">Wähle deinen Modus</p>
+            
+            <button class="btn-menu" onclick="startGame('tabu')">🎨 KUNST-TABU</button>
+            <button class="btn-menu" onclick="startGame('quiz')">🧠 PROFI-QUIZ</button>
+            <button class="btn-menu" onclick="alert('Kommt bald!')">🕵️ DER FÄLSCHER</button>
+        </div>
+
+        <!-- SPIEL: TABU -->
+        <div id="game-tabu" class="screen hidden">
+            <div class="header-bar">
+                <button class="btn-small" onclick="showMenu()">✖ Beenden</button>
+                <div class="timer">60s</div>
+            </div>
+            
+            <div class="card">
+                <h2 id="tabu-term">BEGRIFF</h2>
+                <div class="divider"></div>
+                <p class="forbidden-label">NICHT SAGEN:</p>
+                <ul id="tabu-forbidden">
+                    <li>Wort 1</li>
+                    <li>Wort 2</li>
+                    <li>Wort 3</li>
+                </ul>
+            </div>
+
+            <div class="controls">
+                <button class="btn-fail" onclick="nextTabu()">PASSE</button>
+                <button class="btn-success" onclick="nextTabu()">RICHTIG</button>
+            </div>
+        </div>
+
+        <!-- SPIEL: QUIZ -->
+        <div id="game-quiz" class="screen hidden">
+            <div class="header-bar">
+                <button class="btn-small" onclick="showMenu()">✖ Beenden</button>
+                <div id="quiz-score">Punkte: 0</div>
+            </div>
+            
+            <div class="card">
+                <p id="quiz-question">Frage kommt hier...</p>
+                <div id="quiz-options">
+                    <!-- Buttons werden per JS generiert -->
+                </div>
+            </div>
+            <div id="quiz-feedback" class="hidden"></div>
+            <button id="btn-next-quiz" class="btn-main hidden" onclick="nextQuiz()">Nächste Frage</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

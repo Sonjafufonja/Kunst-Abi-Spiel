@@ -1,0 +1,98 @@
+:root {
+    --bg-color: #1a1a1a;
+    --card-color: #2c2c2c;
+    --text-color: #f0f0f0;
+    --accent-color: #d4af37; /* Gold */
+    --fail-color: #c0392b;
+    --success-color: #27ae60;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    background: var(--bg-color);
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 40px;
+    line-height: 1.2;
+}
+
+.highlight { color: var(--accent-color); }
+.subtitle { text-align: center; opacity: 0.7; margin-bottom: 40px; }
+
+/* Screens Logic */
+.screen { display: none; height: 100%; flex-direction: column; }
+.screen.active { display: flex; }
+
+/* Buttons */
+button { border: none; cursor: pointer; transition: transform 0.1s; }
+button:active { transform: scale(0.98); }
+
+.btn-menu {
+    background: var(--card-color);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    padding: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+
+.btn-small { background: transparent; color: #888; font-size: 0.9rem; }
+.btn-main { background: var(--accent-color); color: #000; padding: 15px; font-weight: bold; border-radius: 50px; width: 100%; margin-top: auto;}
+
+/* Tabu Card */
+.card {
+    background: var(--card-color);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+    margin-top: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.divider { height: 2px; background: var(--accent-color); width: 50px; margin: 20px auto; }
+.forbidden-label { color: var(--fail-color); font-weight: bold; font-size: 0.9rem; letter-spacing: 2px; }
+
+ul { list-style: none; padding: 0; font-size: 1.2rem; line-height: 1.8; opacity: 0.9; }
+
+/* Controls */
+.controls { display: flex; gap: 10px; margin-top: 20px; }
+.controls button { flex: 1; padding: 20px; border-radius: 10px; font-weight: bold; font-size: 1.1rem; color: white; }
+.btn-fail { background: var(--fail-color); }
+.btn-success { background: var(--success-color); }
+
+/* Quiz Styling */
+.quiz-opt {
+    background: #444; color: white; padding: 15px; margin: 10px 0;
+    border-radius: 8px; width: 100%; text-align: left;
+}
+.quiz-opt.correct { background: var(--success-color); border: 2px solid white;}
+.quiz-opt.wrong { background: var(--fail-color); opacity: 0.6; }
